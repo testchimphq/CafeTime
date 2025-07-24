@@ -14,7 +14,6 @@ import { format } from 'date-fns';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { MANAGER_RECIPIENT_ID, MANAGER_RECIPIENT_NAME } from '@/lib/constants';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Separator } from '@/components/ui/separator';
 import { mockSimpleEmployees } from '@/lib/mock-data'; // Updated import
 
 
@@ -281,7 +280,7 @@ export default function MessagesPage() {
               )}
             </ScrollArea>
             <CardFooter className="p-4 border-t">
-              <div className="flex w-full items-center space-x-2 p-0">
+              <div className="flex w-full items-center space-x-2">
                 <Textarea
                   placeholder={
                     user.role === 'employee' ? `Message ${MANAGER_RECIPIENT_NAME}...` :
@@ -297,13 +296,13 @@ export default function MessagesPage() {
                       handleSendMessage();
                     }
                   }}
-                  className="flex-1 resize-none"
+                  className="flex-1 h-9 min-h-0 px-3 py-2 rounded-md resize-none"
                   rows={1}
                 />
                 <Button 
                   onClick={handleSendMessage} 
                   disabled={!newMessageContent.trim() || (user.role === 'manager' && !activeThreadId && !managerSelectedRecipientId)}
-                  className="h-10"
+                  size="sm"
                 >
                   <Send className="h-4 w-4 mr-0 sm:mr-2" /> <span className="hidden sm:inline">Send</span>
                 </Button>

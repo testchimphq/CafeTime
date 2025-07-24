@@ -68,7 +68,7 @@ export default function TeamManagementPage() {
                   <TableRow key={employee.id}>
                     <TableCell>
                       <Avatar>
-                        <AvatarImage src={employee.avatarUrl || `https://placehold.co/40x40.png?text=${employee.name.charAt(0)}`} alt={employee.name} data-ai-hint="employee avatar" />
+                        <AvatarImage src={employee.avatarUrl || `https://placehold.co/40x40.png?text=${employee.name.charAt(0)}`} alt={employee.name} aria-label={`Avatar of ${employee.name}`} data-ai-hint="employee avatar" />
                         <AvatarFallback>{employee.name.substring(0, 2).toUpperCase()}</AvatarFallback>
                       </Avatar>
                     </TableCell>

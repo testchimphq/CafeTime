@@ -36,7 +36,7 @@ body {
 
     /* Sidebar specific theme variables */
     --sidebar-background: 26 70% 45%; /* Darker Terracotta */
-    --sidebar-foreground: 0 0% 100%; /* White */
+    --sidebar-foreground: 25 60% 20%; /* Dark Brown for high contrast */
     --sidebar-primary: 47 100% 69%; /* Mustard Yellow (active/highlighted items) */
     --sidebar-primary-foreground: 30 80% 10%; /* Dark brown/black */
     --sidebar-accent: 26 80% 52%; /* Terracotta (hover states) */
@@ -68,7 +68,7 @@ body {
     --ring: 26 80% 52%;
 
     --sidebar-background: 26 70% 25%; /* Darker Terracotta for dark mode */
-    --sidebar-foreground: 0 0% 95%; 
+    --sidebar-foreground: 60 56% 91%; /* Light Beige for high contrast */
     --sidebar-primary: 47 100% 69%; 
     --sidebar-primary-foreground: 30 80% 10%; 
     --sidebar-accent: 26 80% 42%; 

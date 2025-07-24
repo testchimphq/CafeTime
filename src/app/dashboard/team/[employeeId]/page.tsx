@@ -217,7 +217,7 @@ export default function EmployeeProfilePage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                 <div className="md:col-span-1 flex flex-col items-center space-y-3">
                   <Avatar className="h-32 w-32 border-2 border-primary">
-                    <AvatarImage src={employee.avatarUrl || `https://placehold.co/128x128.png?text=${employee.name.charAt(0)}`} alt={employee.name} data-ai-hint="profile avatar" />
+                    <AvatarImage src={employee.avatarUrl || `https://placehold.co/128x128.png?text=${employee.name.charAt(0)}`} alt={employee.name} aria-label={`Avatar of ${employee.name}`} data-ai-hint="profile avatar" />
                     <AvatarFallback className="text-4xl">{employee.name.substring(0, 2).toUpperCase()}</AvatarFallback>
                   </Avatar>
                    {effectiveIsEditing && <Button type="button" variant="outline" size="sm">Change Avatar (mock)</Button>}
