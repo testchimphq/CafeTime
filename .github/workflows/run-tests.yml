@@ -18,7 +18,7 @@ jobs:
 
       - name: Run TestChimp Tests with AI Repair
         id: testchimp
-        uses: awarelabshq/testchimp-github-testrunner@v1.0.13
+        uses: awarelabshq/testchimp-github-testrunner@v1.0.14
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
