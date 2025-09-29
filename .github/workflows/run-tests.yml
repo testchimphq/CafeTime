@@ -23,6 +23,6 @@ jobs:
         with:
           api-key: ${{ secrets.TESTCHIMP_API_KEY }}
           project-id: ${{ secrets.TESTCHIMP_PROJECT_ID }}
-          test-directory: "ui/tests,services/tests"
+          test-directory: "tests"
           success-criteria: "REPAIR_SUCCESS_WITH_CONFIDENCE"
           repair-confidence-threshold: "4"
