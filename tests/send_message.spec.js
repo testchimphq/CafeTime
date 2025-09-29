@@ -19,7 +19,7 @@ test('send_message', async ({ page, browser, context }) => {
   // Step 6: Click on the 'Messages' tab in the navigation bar
   await page.getByRole('link', { name: 'Messages' }).click();
   // Step 7: Wait for the Messages page to load
-  await page.waitForSelector('button:has-text("Send")');
+  await page.waitForSelector('button:has-text("Go")');
   // Step 8: Type 'Hello' into the message input field
   await page.getByRole('textbox', { name: 'Message Managers...' }).fill('Hello');
   // Step 9: Click on the 'Send' button to send the message
