@@ -1,0 +1,9 @@
+
+Test: SendMessage_Success
+
+- Go to https://studio--cafetime-afg2v.us-central1.hosted.app/
+- Login with alice@example.com, TestPass123
+- Go to Messages tab
+- Send a message "Hello"
+- Make sure the conversation thread shows the sent message
+- Make sure the message input field is now empty
