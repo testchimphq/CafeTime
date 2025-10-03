@@ -1,6 +1,3 @@
-
-Test: Send Message
-
 - Go to https://studio--cafetime-afg2v.us-central1.hosted.app/
 - Login with alice@example.com, TestPass123
 - Go to Messages tab
