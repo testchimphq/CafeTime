@@ -20,7 +20,7 @@ test('send_message', async ({ page, browser, context }) => {
   // Step 5: Type 'TestPass123' into the password input field
   await page.getByRole('textbox', { name: 'Password' }).fill('TestPass123');
   // Step 6: Click on the login button
-  await page.getByRole('button', { name: 'Sign In' }).click();
+  await page.getByRole('button', { name: 'login' }).click();
   // Step 7: Wait for the main dashboard to load
   await page.waitForLoadState('networkidle');
   // Step 8: Click on the 'Messages' tab to navigate to messages
