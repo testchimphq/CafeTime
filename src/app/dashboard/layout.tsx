@@ -22,6 +22,7 @@ import { UserNav } from '@/components/layout/user-nav';
 import { Skeleton } from '@/components/ui/skeleton';
 import { MessagingProvider, useMessaging } from '@/contexts/messaging-context'; // New import
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"; // New import
+import { SidebarThemeButton } from "@/components/sidebar-theme-button";
 
 // Inner layout component to access MessagingContext
 function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
@@ -55,7 +56,8 @@ function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
         <SidebarContent>
           <MainSidebarContent />
         </SidebarContent>
-        <SidebarFooter className="p-2 mt-auto border-t border-sidebar-border">
+        <SidebarFooter className="p-2 mt-auto border-t border-sidebar-border gap-2">
+          <SidebarThemeButton />
           <Button variant="ghost" onClick={logout} className="w-full justify-start gap-2 text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
             <LogOut />
             <span>Logout</span>

@@ -26,7 +26,7 @@ import { useMessaging } from "@/contexts/messaging-context";
 import { Badge } from "@/components/ui/badge"; 
 
 interface NavItem {
-  href: string;
+  href?: string;
   label: string;
   icon: React.ElementType;
   roles?: ('manager' | 'employee')[];

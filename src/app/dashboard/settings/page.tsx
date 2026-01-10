@@ -21,7 +21,7 @@ import { format as formatDate } from "date-fns";
 
 
 const timeRegex = /^([01]\d|2[0-3]):([0-5]\d)$/; // HH:MM format
-const phoneRegex = /^\+?[1-9]\d{1,14}$/; // Basic E.164 phone number format
+
 
 const specialOperatingHoursSchema = z.object({
   id: z.string().optional(), // For existing items
@@ -58,8 +58,8 @@ const cafeSettingsFormSchema = z.object({
 type CafeSettingsFormValues = z.infer<typeof cafeSettingsFormSchema>;
 
 const profileFormSchema = z.object({
-  name: z.string().min(1, "Name is required."),
-  phoneNumber: z.string().regex(phoneRegex, "Invalid phone number format.").optional().or(z.literal("")),
+  name: z.string(),
+  phoneNumber: z.string().optional(),
 });
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
