@@ -15,9 +15,11 @@ import { useAuth } from "@/contexts/auth-context";
 import { LogOut, Settings, UserCircle } from "lucide-react";
 import Link from "next/link";
 import { Routes } from "@/lib/constants";
+import { useTranslation } from "react-i18next";
 
 export function UserNav() {
   const { user, logout } = useAuth();
+  const { t } = useTranslation();
 
   if (!user) {
     return null;
@@ -52,14 +54,14 @@ export function UserNav() {
           <Link href={Routes.SETTINGS}>
             <DropdownMenuItem>
               <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
+              <span>{t('user.settings')}</span>
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={logout}>
           <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
+          <span>{t('user.logout')}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

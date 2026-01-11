@@ -5,6 +5,8 @@ import { AuthProvider } from '@/contexts/auth-context';
 import { APP_NAME } from '@/lib/constants';
 import { ThemeProvider } from "@/components/theme-provider";
 
+import { I18nProvider } from "@/components/i18n-provider";
+
 export const metadata: Metadata = {
   title: APP_NAME,
   description: 'Cafe Staff Shift Management System',
@@ -19,15 +21,17 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-sans antialiased">
         <AuthProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-            <Toaster />
-          </ThemeProvider>
+          <I18nProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+              <Toaster />
+            </ThemeProvider>
+          </I18nProvider>
         </AuthProvider>
       </body>
     </html>

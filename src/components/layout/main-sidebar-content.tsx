@@ -24,10 +24,11 @@ import { useAuth } from "@/contexts/auth-context";
 import { APP_NAME, Routes } from "@/lib/constants";
 import { useMessaging } from "@/contexts/messaging-context"; 
 import { Badge } from "@/components/ui/badge"; 
+import { useTranslation } from "react-i18next"; 
 
 interface NavItem {
   href?: string;
-  label: string;
+  key: string; // Changed from label for translation
   icon: React.ElementType;
   roles?: ('manager' | 'employee')[];
   managerOnly?: boolean;
@@ -36,23 +37,24 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { href: Routes.DASHBOARD, label: "Dashboard", icon: LayoutDashboard },
-  { href: Routes.MESSAGES, label: "Messages", icon: MessageSquare },
+  { href: Routes.DASHBOARD, key: "dashboard", icon: LayoutDashboard },
+  { href: Routes.MESSAGES, key: "messages", icon: MessageSquare },
   // Employee specific
-  { href: Routes.MY_AVAILABILITY, label: "My Availability", icon: CalendarCheck2, employeeOnly: true },
-  { label: "My Profile", icon: UserCircle, employeeOnly: true, generateHref: (userId) => `${Routes.TEAM}/${userId}` },
+  { href: Routes.MY_AVAILABILITY, key: "my_availability", icon: CalendarCheck2, employeeOnly: true },
+  { key: "my_profile", icon: UserCircle, employeeOnly: true, generateHref: (userId) => `${Routes.TEAM}/profile?id=${userId}` },
   // Manager specific
-  { href: Routes.MANAGE_SHIFTS, label: "Manage Shifts", icon: ClipboardEdit, managerOnly: true },
-  { href: Routes.TEAM, label: "Team Management", icon: Users, managerOnly: true },
-  { href: Routes.TEAM_AVAILABILITY, label: "Team Availability", icon: UsersRound, managerOnly: true },
+  { href: Routes.MANAGE_SHIFTS, key: "manage_shifts", icon: ClipboardEdit, managerOnly: true },
+  { href: Routes.TEAM, key: "team_management", icon: Users, managerOnly: true },
+  { href: Routes.TEAM_AVAILABILITY, key: "team_availability", icon: UsersRound, managerOnly: true },
   // Common
-  { href: Routes.SETTINGS, label: "Settings", icon: Settings },
+  { href: Routes.SETTINGS, key: "settings", icon: Settings },
 ];
 
 export function MainSidebarContent() {
   const pathname = usePathname();
   const { user } = useAuth();
-  const { getUnreadMessageCount } = useMessaging(); 
+  const { getUnreadMessageCount } = useMessaging();
+  const { t } = useTranslation();
 
   if (!user) return null;
 
@@ -69,7 +71,7 @@ export function MainSidebarContent() {
       <SidebarGroup>
          <Link href={Routes.DASHBOARD} className="flex items-center gap-2 px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring rounded-md">
             <Coffee className="h-8 w-8 text-sidebar-primary" />
-            <span className="text-xl font-semibold text-sidebar-foreground">{APP_NAME}</span>
+            <span className="text-xl font-semibold text-sidebar-foreground">{t('app.title')}</span>
           </Link>
       </SidebarGroup>
 
@@ -79,17 +81,17 @@ export function MainSidebarContent() {
           if (!href) return null; // Should not happen if generateHref is for employeeOnly and user is employee
 
           return (
-            <SidebarMenuItem key={item.label}>
+            <SidebarMenuItem key={item.key}>
               <Link href={href} passHref legacyBehavior>
                 <SidebarMenuButton
                   asChild
                   isActive={pathname === href || (href !== Routes.DASHBOARD && pathname.startsWith(href))}
-                  tooltip={{ children: item.label, className: "bg-popover text-popover-foreground border-border" }}
+                  tooltip={{ children: t(`sidebar.${item.key}`), className: "bg-popover text-popover-foreground border-border" }}
                   className="relative"
                 >
                   <a>
                     <item.icon />
-                    <span>{item.label}</span>
+                    <span>{t(`sidebar.${item.key}`)}</span>
                     {item.href === Routes.MESSAGES && unreadCount > 0 && (
                       <Badge variant="destructive" className="absolute top-1 right-1 h-5 w-5 p-0 flex items-center justify-center text-xs group-data-[collapsible=icon]:hidden">
                         {unreadCount}

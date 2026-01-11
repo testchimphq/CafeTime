@@ -78,7 +78,7 @@ export default function TeamManagementPage() {
                     <TableCell>${employee.currentWage?.toFixed(2) || 'N/A'}</TableCell>
                     <TableCell className="text-right">
                       <Button variant="outline" size="sm" asChild>
-                        <Link href={`${Routes.TEAM}/${employee.id}`}>
+                        <Link href={`${Routes.TEAM}/profile?id=${employee.id}`}>
                           <Eye className="mr-2 h-4 w-4" /> View/Edit Profile
                         </Link>
                       </Button>

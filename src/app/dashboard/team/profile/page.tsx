@@ -1,8 +1,7 @@
-
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import React, { useEffect, useState, Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/auth-context';
 import { MOCK_DETAILED_EMPLOYEES } from '@/lib/mock-data';
 import type { User, Certification, WageHistoryEntry } from '@/types';
@@ -73,12 +72,13 @@ const formatDateForInput = (dateString?: string) => {
 };
 
 
-export default function EmployeeProfilePage() {
+function EmployeeProfileContent() {
   const { user: currentUser } = useAuth();
-  const params = useParams();
+  const searchParams = useSearchParams();
   const router = useRouter();
   const { toast } = useToast();
-  const employeeId = params.employeeId as string;
+  
+  const employeeId = searchParams.get('id');
 
   const [employee, setEmployee] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -133,6 +133,9 @@ export default function EmployeeProfilePage() {
         router.push(Routes.TEAM);
       }
       setIsLoading(false);
+    } else {
+        // Handle missing ID
+         setIsLoading(false);
     }
   }, [employeeId, form, router, toast]);
 
@@ -156,7 +159,7 @@ export default function EmployeeProfilePage() {
         wageHistory: data.wageHistory?.map(wh => ({
             ...wh,
             date: wh.date ? new Date(wh.date).toISOString() : undefined,
-        }))
+            }))
     });
     toast({
       title: "Profile Updated",
@@ -181,6 +184,10 @@ export default function EmployeeProfilePage() {
 
   if (isLoading) {
     return <div className="flex h-screen items-center justify-center"><p>Loading profile...</p></div>;
+  }
+
+  if (!employeeId) {
+      return <div className="flex h-screen items-center justify-center"><p>No employee selected.</p></div>;
   }
 
   if (!employee) {
@@ -438,4 +445,12 @@ function CardSection({ title, icon: Icon, children }: CardSectionProps) {
       <div className="pl-8">{children}</div>
     </div>
   );
+}
+
+export default function EmployeeProfilePage() {
+    return (
+        <Suspense fallback={<div className="flex h-screen items-center justify-center">Loading...</div>}>
+            <EmployeeProfileContent />
+        </Suspense>
+    );
 }

@@ -24,6 +24,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
 
 const loginFormSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -69,6 +70,7 @@ const MOCK_INVITE_CODE = "CAFE123"; // Example invite code
 export function LoginForm() {
   const { login, register } = useAuth();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -144,8 +146,8 @@ export function LoginForm() {
             <div className="mx-auto mb-4">
               <Logo size={48} />
             </div>
-            <CardTitle className="text-3xl font-bold">Loading...</CardTitle>
-            <CardDescription>Please wait while we prepare the page.</CardDescription>
+            <CardTitle className="text-3xl font-bold">{t('sidebar.loading')}</CardTitle>
+            <CardDescription>{t('sidebar.loading')}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="h-10 bg-muted rounded-md animate-pulse"></div>
@@ -165,14 +167,14 @@ export function LoginForm() {
           <div className="mx-auto mb-4">
             <Logo size={48} />
           </div>
-          <CardTitle className="text-3xl font-bold">CafeTime Portal</CardTitle>
-          <CardDescription>Manage your shifts and availability with ease.</CardDescription>
+          <CardTitle className="text-3xl font-bold">{t('app.portal_title')}</CardTitle>
+          <CardDescription>{t('app.portal_desc')}</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="login">Sign In</TabsTrigger>
-              <TabsTrigger value="register">Register</TabsTrigger>
+              <TabsTrigger value="login">{t('auth.sign_in')}</TabsTrigger>
+              <TabsTrigger value="register">{t('auth.register')}</TabsTrigger>
             </TabsList>
             <TabsContent value="login">
               <Form {...loginForm}>
@@ -182,9 +184,9 @@ export function LoginForm() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{t('form.email')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="name@example.com" {...field} />
+                          <Input placeholder={t('form.placeholders.email')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -195,9 +197,9 @@ export function LoginForm() {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel>{t('form.password')}</FormLabel>
                         <FormControl>
-                          <Input type="password" placeholder="••••••••" {...field} />
+                          <Input type="password" placeholder={t('form.placeholders.password')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -208,11 +210,11 @@ export function LoginForm() {
                     name="role"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Role</FormLabel>
+                        <FormLabel>{t('form.role')}</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select your role" />
+                              <SelectValue placeholder={t('form.role')} />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -238,9 +240,9 @@ export function LoginForm() {
                     name="fullName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel>{t('form.full_name')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} />
+                          <Input placeholder={t('form.placeholders.name')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -251,9 +253,9 @@ export function LoginForm() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{t('form.email')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="name@example.com" {...field} />
+                          <Input placeholder={t('form.placeholders.email')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -264,9 +266,9 @@ export function LoginForm() {
                     name="password"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Password</FormLabel>
+                        <FormLabel>{t('form.password')}</FormLabel>
                         <FormControl>
-                          <Input type="password" placeholder="••••••••" {...field} />
+                          <Input type="password" placeholder={t('form.placeholders.password')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -277,9 +279,9 @@ export function LoginForm() {
                     name="confirmPassword"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Confirm Password</FormLabel>
+                        <FormLabel>{t('form.confirm_password')}</FormLabel>
                         <FormControl>
-                          <Input type="password" placeholder="••••••••" {...field} />
+                          <Input type="password" placeholder={t('form.placeholders.password')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -290,7 +292,7 @@ export function LoginForm() {
                     name="registrationType"
                     render={({ field }) => (
                       <FormItem className="space-y-3">
-                        <FormLabel>How would you like to register?</FormLabel>
+                        <FormLabel>{t('form.registration_type')}</FormLabel>
                         <FormControl>
                           <RadioGroup
                             onValueChange={field.onChange}
@@ -301,13 +303,13 @@ export function LoginForm() {
                               <FormControl>
                                 <RadioGroupItem value="join" />
                               </FormControl>
-                              <FormLabel className="font-normal">Join an Existing Cafe</FormLabel>
+                              <FormLabel className="font-normal">{t('form.join_cafe')}</FormLabel>
                             </FormItem>
                             <FormItem className="flex items-center space-x-3 space-y-0">
                               <FormControl>
                                 <RadioGroupItem value="create" />
                               </FormControl>
-                              <FormLabel className="font-normal">Create a New Cafe</FormLabel>
+                              <FormLabel className="font-normal">{t('form.create_cafe')}</FormLabel>
                             </FormItem>
                           </RadioGroup>
                         </FormControl>
@@ -322,11 +324,11 @@ export function LoginForm() {
                       name="cafeInviteCode"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Cafe Invite Code</FormLabel>
+                          <FormLabel>{t('form.cafe_invite_code')}</FormLabel>
                           <FormControl>
-                            <Input placeholder="Enter invite code" {...field} />
+                            <Input placeholder={t('form.placeholders.invite_code')} {...field} />
                           </FormControl>
-                          <FormDescription>Ask your manager for the cafe's invite code.</FormDescription>
+                          <FormDescription>{t('form.cafe_invite_code_desc')}</FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -339,18 +341,18 @@ export function LoginForm() {
                       name="newCafeName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Your Cafe Name</FormLabel>
+                          <FormLabel>{t('form.cafe_name')}</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g., The Daily Grind" {...field} />
+                            <Input placeholder={t('form.placeholders.cafe_name')} {...field} />
                           </FormControl>
-                          <FormDescription>You'll be the manager of this new cafe.</FormDescription>
+                          <FormDescription>{t('form.cafe_name_desc')}</FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                   )}
                   <Button type="submit" className="w-full text-lg py-6 bg-primary hover:bg-primary/90" disabled={registrationForm.formState.isSubmitting}>
-                    {registrationForm.formState.isSubmitting ? "Registering..." : "Register"}
+                    {registrationForm.formState.isSubmitting ? t('auth.registering') : t('auth.register')}
                   </Button>
                 </form>
               </Form>
