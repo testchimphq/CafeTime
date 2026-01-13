@@ -19,6 +19,7 @@ import {
   MessageSquare,
   Users, // For Team Management (manager)
   UserCircle, // For My Profile (employee)
+  Search,
 } from "lucide-react";
 import { useAuth } from "@/contexts/auth-context";
 import { APP_NAME, Routes } from "@/lib/constants";
@@ -47,6 +48,7 @@ const navItems: NavItem[] = [
   { href: Routes.TEAM, key: "team_management", icon: Users, managerOnly: true },
   { href: Routes.TEAM_AVAILABILITY, key: "team_availability", icon: UsersRound, managerOnly: true },
   // Common
+  { href: Routes.TEAM_SEARCH, key: "team_search", icon: Search },
   { href: Routes.SETTINGS, key: "settings", icon: Settings },
 ];
 

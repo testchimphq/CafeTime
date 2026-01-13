@@ -8,6 +8,7 @@ export const Routes = {
   MANAGE_SHIFTS: "/dashboard/manage-shifts",
   TEAM_AVAILABILITY: "/dashboard/team-availability", // Existing, can be refined later
   TEAM: "/dashboard/team", // New: For manager's team list and employee profiles
+  TEAM_SEARCH: "/dashboard/team-search", // Demo: Search functionality with crash state
   SETTINGS: "/dashboard/settings",
   MESSAGES: "/dashboard/messages",
 };

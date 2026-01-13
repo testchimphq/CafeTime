@@ -199,7 +199,7 @@ export function LoginForm() {
                       <FormItem>
                         <FormLabel>{t('form.password')}</FormLabel>
                         <FormControl>
-                          <Input type="password" placeholder={t('form.placeholders.password')} {...field} />
+                          <Input type="password" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -268,7 +268,7 @@ export function LoginForm() {
                       <FormItem>
                         <FormLabel>{t('form.password')}</FormLabel>
                         <FormControl>
-                          <Input type="password" placeholder={t('form.placeholders.password')} {...field} />
+                          <Input type="password" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -281,7 +281,7 @@ export function LoginForm() {
                       <FormItem>
                         <FormLabel>{t('form.confirm_password')}</FormLabel>
                         <FormControl>
-                          <Input type="password" placeholder={t('form.placeholders.password')} {...field} />
+                          <Input type="password" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
