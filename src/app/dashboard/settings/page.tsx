@@ -58,7 +58,9 @@ const cafeSettingsFormSchema = z.object({
 type CafeSettingsFormValues = z.infer<typeof cafeSettingsFormSchema>;
 
 const profileFormSchema = z.object({
-  name: z.string(),
+  name: z.string()
+    .min(1, "Name is required")
+    .regex(/^[a-zA-Z\s]+$/, "Name can only contain letters and spaces"),
   phoneNumber: z.string().optional(),
 });
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
