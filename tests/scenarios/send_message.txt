@@ -1,6 +1,0 @@
-- Go to https://studio--cafetime-afg2v.us-central1.hosted.app/
-- Login with alice@example.com, TestPass123
-- Go to Messages tab
-- Send a message "Hello"
-- Verify conversation thread shows the sent message
-- Verify message input field is now empty

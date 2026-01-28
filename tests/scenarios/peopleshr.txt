@@ -1,7 +1,0 @@
-- go to https://hrmv100idqaupgrade.phrsandbox.dev/hr/home/index
-- login with credentials: Willy, Willy@1234
-- Click on the all Modules menu item (top menu icon)
-- Click on Core HR menu option
-- Select Employee Information (under the employee information option)
-- Click on New
-- Verify new employee information enter form is shown
