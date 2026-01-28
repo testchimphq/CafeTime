@@ -17,7 +17,7 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['playwright-testchimp-reporter', {
-      // Configuration options can be provided here or via environment variables
+      verbose:true
     }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
