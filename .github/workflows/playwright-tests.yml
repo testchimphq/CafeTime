@@ -30,4 +30,5 @@ jobs:
           TESTCHIMP_TESTS_FOLDER: "tests"
           TESTCHIMP_API_URL: "https://featureservice-staging.testchimp.io"
           TESTCHIMP_RELEASE: "default"
+          TESTCHIMP_BACKEND_URL: "https://featureservice-staging.testchimp.io"
           TESTCHIMP_ENV: "QA"
