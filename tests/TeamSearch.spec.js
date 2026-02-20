@@ -2,12 +2,11 @@
  * This is a TestChimp Smart Test.
  * Version 1.0
  *
- * #login #search #teamsearch
+ * #login #search #newversion
  *
  */
 
 import { test, expect } from '@playwright/test';
-import { ai } from 'ai-wright';
 
 test('search_success', async ({ page }) => {
   // @Scenario: Search functionality returns correct team members for valid queries
@@ -34,7 +33,7 @@ test('search_success', async ({ page }) => {
   await page.locator('[placeholder="Search by name or email..."]').press('Enter');
 
   /* @Screen: Team Search @State: search results, query 'alice' */
-  await ai.verify("Verify there is one search result", { page, test });
+  await ai.verify("Verify there is one search result",{page,test});
 });
 
 test('search_empty_results', async ({ page }) => {
@@ -62,5 +61,5 @@ test('search_empty_results', async ({ page }) => {
   await page.locator('[placeholder="Search by name or email..."]').press('Enter');
 
   /* @Screen: Team Search @State: search results, query 'alice' */
-  await ai.verify("Verify there are no search results but that the page isn't broken", { page, test });
+  await ai.verify("Verify there are no search results but that the page isn't broken",{page,test});
 });
