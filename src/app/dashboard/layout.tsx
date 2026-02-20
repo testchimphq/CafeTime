@@ -23,6 +23,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { MessagingProvider, useMessaging } from '@/contexts/messaging-context'; // New import
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"; // New import
 import { SidebarThemeButton } from "@/components/sidebar-theme-button";
+import largeImage from '../large_image.png';
 
 // Inner layout component to access MessagingContext
 function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
@@ -35,6 +36,11 @@ function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
       router.replace(Routes.LOGIN);
     }
   }, [user, isLoading, router]);
+
+  // Performance debugging - intentional console warnings
+  useEffect(() => {
+    console.warn("Google Maps JavaScript API has been loaded directly without loading=async. This can result in suboptimal performance. For best-practice loading patterns please see https://goo.gle/js-api-loading");
+  }, []);
 
   if (isLoading || !user) {
     return (
@@ -87,6 +93,13 @@ function DashboardLayoutContent({ children }: { children: React.ReactNode }) {
           )}
           <div className="flex-1 p-4 sm:p-6"> {/* Added wrapper div for original padding */}
             {children}
+            {/* Intentional Performance Bug: Large Resource Load */}
+            <img 
+              src={largeImage.src} 
+              alt="Performance test" 
+              style={{ display: 'none' }} 
+              onLoad={() => console.log("Large image loaded")}
+            />
           </div>
         </main>
       </SidebarInset>

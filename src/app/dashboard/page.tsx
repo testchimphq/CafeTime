@@ -1,7 +1,10 @@
+"use client";
 
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShiftCalendar } from "@/components/dashboard/shift-calendar"; // New import
 import { CalendarDays } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 // Mock data - in a real app, this would come from a backend or context
 import type { Shift, CafeSettings } from "@/types";
@@ -26,6 +29,42 @@ const mockCafeSettings: CafeSettings = {
 
 
 export default function DashboardPage() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Intentional Performance Bug: Slow Page Load (3 seconds)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+
+    // Intentional Performance Bug: Long Task (Blocking main thread)
+    // Calculating something uselessly to block the thread for > 100ms
+    const start = performance.now();
+    while (performance.now() - start < 200) {
+      // Blocking loop
+      Math.sqrt(Math.random() * 1000000);
+    }
+    console.log("Long task completed");
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="space-y-6">
+        <Card className="shadow-lg">
+          <CardHeader>
+            <Skeleton className="h-8 w-64" />
+            <Skeleton className="h-4 w-full" />
+          </CardHeader>
+          <CardContent>
+            <Skeleton className="h-[400px] w-full" />
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       <Card className="shadow-lg">
