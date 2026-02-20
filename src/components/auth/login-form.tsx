@@ -186,7 +186,7 @@ export function LoginForm() {
                       <FormItem>
                         <FormLabel>{t('form.email')}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t('form.placeholders.email')} {...field} />
+                          <Input data-testid="input-email" placeholder={t('form.placeholders.email')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -199,7 +199,7 @@ export function LoginForm() {
                       <FormItem>
                         <FormLabel>{t('form.password')}</FormLabel>
                         <FormControl>
-                          <Input type="password" {...field} />
+                          <Input data-testid="input-pass" type="password" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -226,7 +226,7 @@ export function LoginForm() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full text-lg py-6 bg-primary hover:bg-primary/90" disabled={loginForm.formState.isSubmitting}>
+                  <Button data-testid="cta-login" type="submit" className="w-full text-lg py-6 bg-primary hover:bg-primary/90" disabled={loginForm.formState.isSubmitting}>
                     {loginForm.formState.isSubmitting ? "Signing In..." : "Sign In"}
                   </Button>
                 </form>
