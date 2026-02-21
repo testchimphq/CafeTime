@@ -1,0 +1,72 @@
+{
+    "app": {
+        "title": "Sistema de Gestión de Turnos de Personal de Café",
+        "description": "Gestiona turnos fácilmente",
+        "portal_title": "Portal CafeTime",
+        "portal_desc": "Gestiona tus turnos y disponibilidad con facilidad."
+    },
+    "nav": {
+        "home": "Inicio",
+        "dashboard": "Panel de Control",
+        "settings": "Configuración"
+    },
+    "sidebar": {
+        "dashboard": "Panel de Control",
+        "messages": "Mensajes",
+        "my_availability": "Mi Disponibilidad",
+        "my_profile": "Mi Perfil",
+        "manage_shifts": "Gestionar Turnos",
+        "team_management": "Gestión de Equipo",
+        "team_availability": "Disponibilidad del Equipo",
+        "settings": "Configuración",
+        "loading": "Cargando..."
+    },
+    "auth": {
+        "login": "Iniciar sesión",
+        "logout": "Cerrar sesión",
+        "sign_in": "Iniciar sesión",
+        "register": "Registrarse",
+        "signing_in": "Iniciando sesión...",
+        "registering": "Registrando...",
+        "welcome": "Bienvenido",
+        "registration_successful": "¡Registro exitoso!"
+    },
+    "form": {
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "confirm_password": "Confirmar contraseña",
+        "role": "Rol",
+        "full_name": "Nombre completo",
+        "registration_type": "¿Cómo te gustaría registrarte?",
+        "join_cafe": "Unirse a un café existente",
+        "create_cafe": "Crear un nuevo café",
+        "cafe_invite_code": "Código de invitación del café",
+        "cafe_invite_code_desc": "Pide el código de invitación a tu gerente.",
+        "cafe_name": "Nombre de tu café",
+        "cafe_name_desc": "Serás el gerente de este nuevo café.",
+        "placeholders": {
+            "email": "nombre@ejemplo.com",
+            "password": "••••••••",
+            "name": "Juan Pérez",
+            "invite_code": "Introduce el código",
+            "cafe_name": "ej., El Café Diario"
+        },
+        "errors": {
+            "email_invalid": "Por favor, introduce un correo válido.",
+            "password_min": "La contraseña debe tener al menos 6 caracteres.",
+            "name_min": "El nombre debe tener al menos 2 caracteres.",
+            "passwords_match": "Las contraseñas no coinciden."
+        }
+    },
+    "theme": {
+        "toggle": "Alternar tema",
+        "dark": "Modo Oscuro",
+        "light": "Modo Claro",
+        "system": "Sistema"
+    },
+    "user": {
+        "profile": "Perfil",
+        "settings": "Configuración",
+        "logout": "Cerrar sesión"
+    }
+}

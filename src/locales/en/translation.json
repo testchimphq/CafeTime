@@ -1,0 +1,74 @@
+{
+    "app": {
+        "title": "CafeTime",
+        "description": "Manage shifts easily",
+        "portal_title": "CafeTime Portal",
+        "portal_desc": "Manage your shifts and availability with ease."
+    },
+    "nav": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "settings": "Settings"
+    },
+    "sidebar": {
+        "dashboard": "Dashboard",
+        "messages": "Messages",
+        "my_availability": "My Availability",
+        "my_profile": "My Profile",
+        "manage_shifts": "Manage Shifts",
+        "team_management": "Team Management",
+        "team_availability": "Team Availability",
+        "team_search": "Team Search",
+        "settings": "Settings",
+        "loading": "Loading..."
+    },
+    "auth": {
+        "login": "Login",
+        "logout": "Logout",
+        "sign_in": "Sign In",
+        "register": "Register",
+        "signing_in": "Signing In...",
+        "registering": "Registering...",
+        "welcome": "Welcome",
+        "registration_successful": "Registration Successful!"
+    },
+    "form": {
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "role": "Role",
+        "full_name": "Full Name",
+        "registration_type": "How would you like to register?",
+        "join_cafe": "Join an Existing Cafe",
+        "create_cafe": "Create a New Cafe",
+        "cafe_invite_code": "Cafe Invite Code",
+        "cafe_invite_code_desc": "Ask your manager for the cafe's invite code.",
+        "cafe_name": "Your Cafe Name",
+        "cafe_name_desc": "You'll be the manager of this new cafe.",
+        "placeholders": {
+            "email": "name@example.com",
+            "password": "••••••••",
+            "name": "John Doe",
+            "invite_code": "Enter invite code",
+            "cafe_name": "e.g., The Daily Grind"
+        },
+        "errors": {
+            "email_invalid": "Please enter a valid email address.",
+            "password_min": "Password must be at least 6 characters.",
+            "name_min": "Full name must be at least 2 characters.",
+            "passwords_match": "Passwords don't match."
+        }
+    },
+    "theme": {
+        "toggle": "Toggle theme",
+        "dark": "Dark Mode",
+        "light": "Light Mode",
+        "system": "System"
+    },
+    "user": {
+        "profile": "Profile",
+        "settings": "Settings",
+        "logout": "Log out",
+        "update_image": "Update image"
+    }
+}
