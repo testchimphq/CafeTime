@@ -5,7 +5,7 @@
 **/
 
 import { test, expect } from '@playwright/test';
-import { SignIn } from '../../pages/SignIn';
+import {SignIn} from "../../pages/SignIn.page.js";
 import { ai } from 'ai-wright';
 
 test.describe('Messaging', () => {
