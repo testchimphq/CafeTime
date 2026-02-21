@@ -19,6 +19,7 @@ import { useToast } from '@/hooks/use-toast';
 import { User as UserIcon, Briefcase, GraduationCap, DollarSign, Phone, Mail, CalendarDays, PlusCircle, Trash2, GripVertical, Save } from 'lucide-react';
 import { Routes } from '@/lib/constants';
 import { format, parseISO } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 const certificationSchema = z.object({
   id: z.string().optional(),
@@ -73,10 +74,11 @@ const formatDateForInput = (dateString?: string) => {
 
 
 function EmployeeProfileContent() {
-  const { user: currentUser } = useAuth();
+  const { user: currentUser, updateUser } = useAuth();
   const searchParams = useSearchParams();
   const router = useRouter();
   const { toast } = useToast();
+  const { t } = useTranslation();
   
   const employeeId = searchParams.get('id');
 
@@ -181,6 +183,31 @@ function EmployeeProfileContent() {
     setCurrentSkills(currentSkills.filter(skill => skill !== skillToRemove));
   };
 
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file && employee) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        setEmployee({
+          ...employee,
+          avatarUrl: base64String
+        });
+        
+        // If it's the current user's profile, also update AuthContext for global persistence
+        if (isOwnProfile) {
+          updateUser({ avatarUrl: base64String });
+        }
+
+        toast({
+          title: "Profile Image Updated",
+          description: "Your profile image has been updated and saved locally.",
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
 
   if (isLoading) {
     return <div className="flex h-screen items-center justify-center"><p>Loading profile...</p></div>;
@@ -227,7 +254,24 @@ function EmployeeProfileContent() {
                     <AvatarImage src={employee.avatarUrl || `https://placehold.co/128x128.png?text=${employee.name.charAt(0)}`} alt={employee.name} aria-label={`Avatar of ${employee.name}`} data-ai-hint="profile avatar" />
                     <AvatarFallback className="text-4xl">{employee.name.substring(0, 2).toUpperCase()}</AvatarFallback>
                   </Avatar>
-                   {effectiveIsEditing && <Button type="button" variant="outline" size="sm">Change Avatar (mock)</Button>}
+                   {(effectiveIsEditing || isOwnProfile) && (
+                     <>
+                      <input 
+                        type="file" 
+                        id="avatar-upload" 
+                        className="hidden" 
+                        accept="image/*" 
+                        onChange={handleImageUpload} 
+                      />
+                      <button 
+                        type="button" 
+                        className="text-sm font-medium text-primary hover:underline"
+                        onClick={() => document.getElementById('avatar-upload')?.click()}
+                      >
+                        {t('user.update_image')}
+                      </button>
+                     </>
+                   )}
                 </div>
                 <div className="md:col-span-2 space-y-4">
                   <FormField

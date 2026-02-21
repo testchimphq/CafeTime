@@ -68,6 +68,7 @@
     "user": {
         "profile": "Profile",
         "settings": "Settings",
-        "logout": "Log out"
+        "logout": "Log out",
+        "update_image": "Update image"
     }
 }
