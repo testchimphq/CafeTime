@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 60 56% 91%; /* Light Beige */
+    --foreground: 25 60% 20%; /* Dark Brown for text */
+    --card: 60 56% 95%; /* Slightly lighter beige for cards */
+    --card-foreground: 25 60% 20%;
+    --popover: 60 56% 95%;
+    --popover-foreground: 25 60% 20%;
+    --primary: 26 80% 52%; /* Warm Terracotta */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 30 40% 85%; /* Lighter, desaturated terracotta */
+    --secondary-foreground: 26 80% 52%; /* Terracotta */
+    --muted: 60 30% 80%; /* Muted beige */
+    --muted-foreground: 60 10% 40%; /* Darker muted beige text */
+    --accent: 47 100% 69%; /* Mustard Yellow */
+    --accent-foreground: 30 80% 10%; /* Dark brown/black for text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 60 20% 80%; /* Beige border */
+    --input: 60 20% 80%; /* Beige input background */
+    --ring: 26 80% 52%; /* Terracotta for focus rings */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+
+    /* Sidebar specific theme variables */
+    --sidebar-background: 26 70% 45%; /* Darker Terracotta */
+    --sidebar-foreground: 25 60% 20%; /* Dark Brown for high contrast */
+    --sidebar-primary: 47 100% 69%; /* Mustard Yellow (active/highlighted items) */
+    --sidebar-primary-foreground: 30 80% 10%; /* Dark brown/black */
+    --sidebar-accent: 26 80% 52%; /* Terracotta (hover states) */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 26 60% 40%; /* Slightly darker terracotta for borders */
+    --sidebar-ring: 47 100% 69%; /* Mustard yellow for focus rings */
+  }
+
+  .dark {
+    /* Ensuring dark mode has some defaults, can be refined if dark mode is a primary feature */
+    --background: 25 60% 10%; 
+    --foreground: 60 56% 91%; 
+    --card: 25 60% 15%; 
+    --card-foreground: 60 56% 91%;
+    --popover: 25 60% 15%;
+    --popover-foreground: 60 56% 91%;
+    --primary: 26 80% 52%; /* Warm Terracotta */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 30 40% 35%; 
+    --secondary-foreground: 26 80% 62%;
+    --muted: 60 30% 20%;
+    --muted-foreground: 60 10% 70%;
+    --accent: 47 100% 69%; /* Mustard Yellow */
+    --accent-foreground: 30 80% 10%; 
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 60 20% 30%;
+    --input: 60 20% 30%;
+    --ring: 26 80% 52%;
+
+    --sidebar-background: 26 70% 25%; /* Darker Terracotta for dark mode */
+    --sidebar-foreground: 60 56% 91%; /* Light Beige for high contrast */
+    --sidebar-primary: 47 100% 69%; 
+    --sidebar-primary-foreground: 30 80% 10%; 
+    --sidebar-accent: 26 80% 42%; 
+    --sidebar-accent-foreground: 0 0% 95%; 
+    --sidebar-border: 26 60% 20%; 
+    --sidebar-ring: 47 100% 69%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

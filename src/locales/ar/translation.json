@@ -1,0 +1,72 @@
+{
+    "app": {
+        "title": "نظام إدارة مناوبات موظفي المقهى",
+        "description": "إدارة المناوبات بسهولة",
+        "portal_title": "بوابة CafeTime",
+        "portal_desc": "أدر مناوباتك وتوافرك بسهولة."
+    },
+    "nav": {
+        "home": "الرئيسية",
+        "dashboard": "لوحة القيادة",
+        "settings": "الإعدادات"
+    },
+    "sidebar": {
+        "dashboard": "لوحة القيادة",
+        "messages": "الرسائل",
+        "my_availability": "توفري",
+        "my_profile": "ملفي الشخصي",
+        "manage_shifts": "إدارة المناوبات",
+        "team_management": "إدارة الفريق",
+        "team_availability": "توفر الفريق",
+        "settings": "الإعدادات",
+        "loading": "جار التحميل..."
+    },
+    "auth": {
+        "login": "تسجيل الدخول",
+        "logout": "تسجيل الخروج",
+        "sign_in": "تسجيل الدخول",
+        "register": "تسجيل",
+        "signing_in": "جاري تسجيل الدخول...",
+        "registering": "جاري التسجيل...",
+        "welcome": "أهلاً بك",
+        "registration_successful": "تم التسجيل بنجاح!"
+    },
+    "form": {
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirm_password": "تأكيد كلمة المرور",
+        "role": "الدور",
+        "full_name": "الاسم الكامل",
+        "registration_type": "كيف تود التسجيل؟",
+        "join_cafe": "الانضمام إلى مقهى موجود",
+        "create_cafe": "إنشاء مقهى جديد",
+        "cafe_invite_code": "رمز دعوة المقهى",
+        "cafe_invite_code_desc": "اطلب رمز الدعوة من مديرك.",
+        "cafe_name": "اسم المقهى الخاص بك",
+        "cafe_name_desc": "ستكون مدير هذا المقهى الجديد.",
+        "placeholders": {
+            "email": "name@example.com",
+            "password": "••••••••",
+            "name": "فلان الفلاني",
+            "invite_code": "أدخل رمز الدعوة",
+            "cafe_name": "مثلاً: قهوة الصباح"
+        },
+        "errors": {
+            "email_invalid": "يرجى إدخال بريد إلكتروني صحيح.",
+            "password_min": "يجب أن تكون كلمة المرور 6 أحرف على الأقل.",
+            "name_min": "يجب أن يكون الاسم حرفين على الأقل.",
+            "passwords_match": "كلمات المرور غير متطابقة."
+        }
+    },
+    "theme": {
+        "toggle": "تبديل الموضوع",
+        "dark": "الوضع الداكن",
+        "light": "الوضع الفاتح",
+        "system": "نظام"
+    },
+    "user": {
+        "profile": "الملف الشخصي",
+        "settings": "الإعدادات",
+        "logout": "تسجيل الخروج"
+    }
+}
