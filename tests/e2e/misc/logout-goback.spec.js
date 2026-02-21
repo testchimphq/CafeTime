@@ -7,7 +7,7 @@ Version: 1.0
 */
 
 import { test, expect } from '@playwright/test';
-import {SignIn} from "../../pages/SignIn";
+import {SignIn} from "../../pages/SignIn.page.js";
 
 test('logoutAndGoBack_shouldNotOpenDashboard', async ({ page, browser, context }) => {
   // @Scenario: after logging out, going back should not show logged-in experience

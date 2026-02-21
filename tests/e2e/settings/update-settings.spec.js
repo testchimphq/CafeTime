@@ -1,4 +1,4 @@
-/** This file demonstrates: 
+/** This file demonstrates:
  * -  a single test in a file, with multiple @Scenario annotations (You can cover multiple scenarios in a single test).
  */
 
@@ -10,6 +10,7 @@ test('update_settings_success', async ({ page }) => {
   // @Screen: SignIn @State: Unauthenticated
 
   await page.getByRole(`textbox`, { name: `Email` }).fill(`alice@example.com`);
+  // @Screen: Login Page @State: sign in tab active, credentials entered
   await page.getByRole(`textbox`, { name: `Password` }).fill(`TestPass123`);
   await page.getByRole(`button`, { name: `Sign In` }).click();
   // @Screen: Dashboard @State: regular user, weekly view
