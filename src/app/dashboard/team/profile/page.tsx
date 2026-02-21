@@ -137,7 +137,13 @@ function EmployeeProfileContent() {
       setIsLoading(false);
     } else {
         // Handle missing ID
-         setIsLoading(false);
+      setIsLoading(false);
+    }
+
+    // Intentional Performance Bug: Long Task (Blocking main thread)
+    const start = performance.now();
+    while (performance.now() - start < 300) {
+      Math.sqrt(Math.random() * 1000000);
     }
   }, [employeeId, form, router, toast]);
 

@@ -2,6 +2,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -81,6 +82,14 @@ const initialCafeSettings: CafeSettings = {
 export default function SettingsPage() {
   const { user, updateUser } = useAuth();
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Intentional Performance Bug: Long Task (Blocking main thread)
+    const start = performance.now();
+    while (performance.now() - start < 400) {
+      Math.sqrt(Math.random() * 1000000);
+    }
+  }, []);
 
   const cafeSettingsForm = useForm<CafeSettingsFormValues>({
     resolver: zodResolver(cafeSettingsFormSchema),

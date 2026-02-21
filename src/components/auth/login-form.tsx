@@ -126,7 +126,7 @@ export function LoginForm() {
     }
     
     // Simulate registration delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     register(data.fullName, data.email, role, cafeName);
     toast({
