@@ -9,10 +9,10 @@ import { ai } from 'ai-wright';
 test('validCredentials_shouldSucceed', async ({ page, browser, context }) => {
   // @Scenario: valid credentials should allow users to login
   await page.goto('https://cafetime-demo.web.app/');
-  // @Screen: Sign In @State: not logged in, sign-in tab active
-  await this.page.getByTestId('input-email').fill(process.env.USERNAME);
-  await this.page.getByTestId('input-pass').fill(process.env.PASSWORD);
-  await this.page.getByTestId('cta-login').click();
+  // @Screen: Login Page @State: not logged in, sign-in tab active
+  await page.getByTestId('input-email').fill(process.env.USERNAME);
+  await page.getByTestId('input-pass').fill(process.env.PASSWORD);
+  await page.getByTestId('cta-login').click();
   // @Screen: Dashboard @State: shift calendar, week view
 });
 
@@ -20,9 +20,9 @@ test('invalidCredentials_shouldFail', async ({ page, browser, context }) => {
   // @Scenario:invalid credentials should be rejected test
   await page.goto('https://cafetime-demo.web.app/');
   // @Screen: Login Page @State: not logged in, sign-in tab
-  await this.page.getByTestId('input-email').fill('alice@example.com');
-  await this.page.getByTestId('input-pass').fill('GarbageValue');
-  await this.page.getByTestId('cta-login').click();
+  await page.getByTestId('input-email').fill('alice@example.com');
+  await page.getByTestId('input-pass').fill('GarbageValue');
+  await page.getByTestId('cta-login').click();
   // @Screen: Dashboard @State: shift calendar, week view
   // Verify that the user is not allowed in to dashboard page
   await expect(page).not.toHaveURL('https://cafetime-demo.web.app/dashboard');

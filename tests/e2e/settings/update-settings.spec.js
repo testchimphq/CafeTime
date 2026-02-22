@@ -7,7 +7,7 @@ import { test, expect } from '@playwright/test';
 test('update_settings_success', async ({ page }) => {
   // @Scenario:user should be able to update name with valid value
   await page.goto(`https://cafetime-demo.web.app/`);
-  // @Screen: SignIn @State: Unauthenticated
+  // @Screen: Login Page @State: Unauthenticated
 
   await page.getByRole(`textbox`, { name: `Email` }).fill(`alice@example.com`);
   // @Screen: Login Page @State: sign in tab active, credentials entered
