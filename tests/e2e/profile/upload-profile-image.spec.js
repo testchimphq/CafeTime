@@ -26,6 +26,6 @@ test('uploadProfileImage_success', async ({ page }) => {
   // Click on the 'Update image' button
   await page.getByRole(`button`, { name: `Update image` }).click();
 
-  // Upload the profile image
-  await page.locator(`#avatar-upload`).setInputFiles(["../../fixtures/profile_pic.png"]);
+  // Upload the profile image. NOTE: Folder path is resolved relative to tests root folder.
+  await page.locator(`#avatar-upload`).setInputFiles(["fixtures/profile_pic.png"]);
 });
