@@ -21,12 +21,10 @@ test('search_success', async ({ page }) => {
   /* @Screen: Dashboard @State: regular user, weekly view */
   await page.getByText('Team Search', { exact: true }).click();
 
-  /* @Screen: Team Search @State: results visible */
+  /* @Screen: Team Search @State: unfiltered */
   await page.locator('[placeholder="Search by name or email..."]').fill('alice');
 
-  await page.locator('[placeholder="Search by name or email..."]').press('Enter');
-
-  /* @Screen: Team Search @State: search results, query 'alice' */
+  /* @Screen: Team Search @State: non empty search results */
   await ai.verify("Verify there is one search result",{page,test});
 });
 
@@ -42,10 +40,9 @@ test('search_empty_results', async ({ page }) => {
   /* @Screen: Dashboard @State: regular user, weekly view */
   await page.getByText('Team Search', { exact: true }).click();
 
-  /* @Screen: Team Search @State: results visible */
+  /* @Screen: Team Search @State: unfiltered */
   await page.locator('[placeholder="Search by name or email..."]').fill('xxxxx');
-  await page.locator('[placeholder="Search by name or email..."]').press('Enter');
 
-  /* @Screen: Team Search @State: search results, query 'alice' */
+  /* @Screen: Team Search @State: empty search results */
   await ai.verify("Verify there are no search results but that the page isn't broken",{page,test});
 });
