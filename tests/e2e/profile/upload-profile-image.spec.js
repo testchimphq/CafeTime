@@ -3,6 +3,7 @@
  */
 
 import { test, expect } from '@playwright/test';
+import { ai } from 'ai-wright';
 
 
 test('uploadProfileImage_success', async ({ page }) => {

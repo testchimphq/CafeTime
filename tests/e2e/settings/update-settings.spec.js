@@ -3,6 +3,7 @@
  */
 
 import { test, expect } from '@playwright/test';
+import { ai } from 'ai-wright';
 
 test('update_settings_success', async ({ page }) => {
   // @Scenario:user should be able to update name with valid value

@@ -4,6 +4,7 @@
 
 import { test, expect } from '@playwright/test';
 import {SignIn} from "../../pages/SignIn.page.js";
+import { ai } from 'ai-wright';
 
 test('clickProfileIcon_openSettings', async ({ page, browser, context }) => {
   // @Scenario: users should be able to navigate to settings page via profile icon
