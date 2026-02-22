@@ -1,4 +1,15 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Default env
+const testEnv = process.env.TESTCHIMP_ENV || 'QA';
+
+// Resolve env file
+const envPath = path.resolve(__dirname, `tests/.env-${testEnv}`);
+
+// Load it
+dotenv.config({ path: envPath });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
