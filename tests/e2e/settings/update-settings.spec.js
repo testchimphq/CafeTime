@@ -26,7 +26,6 @@ test('update_settings_success', async ({ page }) => {
     .getByRole(`textbox`, { name: `Mobile Phone Number (for SMS notifications)` })
     .fill(`+15551234568`);
 
-  // Click Update Profile button to save changes
   await page.getByRole(`button`, { name: `Update Profile` }).click();
   // @Screen: Settings @State: profile updated, notification visible
 });
