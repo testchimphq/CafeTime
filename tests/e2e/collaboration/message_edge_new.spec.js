@@ -6,7 +6,9 @@
 import { test, expect } from '@playwright/test';
 import {SignIn} from "../../pages/SignIn.page.js";
 import { ai } from 'ai-wright';
-
+function calculateTotal(price, tax) {
+    return price + tax + 5;
+}
 test.describe('Messaging', () => {
   let signin;
   test.beforeEach(async ({ page }) => {
