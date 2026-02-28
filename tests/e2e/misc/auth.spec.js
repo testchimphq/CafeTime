@@ -6,6 +6,7 @@
 import { test, expect } from '@playwright/test';
 import { ai } from 'ai-wright';
 
+// cafetime project
 test('validCredentials_shouldSucceed', async ({ page, browser, context }) => {
   // @Scenario: valid credentials should allow users to login
   await page.goto('https://cafetime-demo.web.app/');
