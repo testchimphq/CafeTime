@@ -17,7 +17,7 @@ test.describe('Messaging', () => {
 
   test('sendMessage_success', async ({ page, browser, context }) => {
     // @Scenario: Sending a non empty message should succeed
-
+    // New Content
     // Go to messages tab
     await page.getByText('Messages').waitFor();
     // @Screen: Dashboard @State: regular user, weekly view
