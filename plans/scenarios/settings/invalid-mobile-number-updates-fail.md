@@ -1,0 +1,25 @@
+---
+type: scenario
+id: TS-101
+title: Invalid mobile number updates fail
+story: US-101
+labels: ["happy path"]
+created_date: 2026-01-27
+priority: medium
+---
+
+## Prerequisites
+
+
+
+## Test Steps
+
+- Navigate to the URL: https://cafetime-demo.web.app/dashboard/settings
+- Fill the mobile number input with an invalid value: 'abcd'
+- Click the 'Update Profile' button to attempt to submit the form
+
+
+## Expected Behaviour
+
+An error message should be displayed indicating that the mobile number format is invalid and the update should not be successful.
+
