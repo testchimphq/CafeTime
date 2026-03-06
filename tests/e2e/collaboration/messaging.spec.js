@@ -18,7 +18,6 @@ test.describe('Messaging', () => {
   test('sendMessage_success', async ({ page, browser, context }) => {
     // @Scenario: Sending a non empty message should succeed
 
-    // Go to messages tab
     await page.getByText('Messages').waitFor();
     // @Screen: Dashboard @State: regular user, weekly view
     await page.getByText('Messages').click();
@@ -35,9 +34,7 @@ test.describe('Messaging', () => {
     await page.getByText('Messages').click();
 
     // @Screen: Dashboard @State: messages, conversation selected
-    // Type empty message
     await page.getByPlaceholder('Message Managers...').fill(' ');
-    // Ensure button is disabled
     await expect(page.getByText(`Send`, { exact: true })).toBeDisabled();
   });
 });
