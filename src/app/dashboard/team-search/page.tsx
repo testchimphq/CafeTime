@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { MOCK_DETAILED_EMPLOYEES } from '@/lib/mock-data';
+import { emitEvent } from '@/lib/testchimp';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
@@ -16,6 +17,15 @@ export default function TeamSearchPage() {
     emp.name.toLowerCase().includes(query.toLowerCase()) ||
     emp.email.toLowerCase().includes(query.toLowerCase())
   );
+
+  useEffect(() => {
+    if (query) {
+      const timer = setTimeout(() => {
+        emitEvent('team_search', { query, results_count: filteredEmployees.length });
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [query, filteredEmployees.length]);
 
   // Intentional crash on 0 state
   if (filteredEmployees.length === 0) {

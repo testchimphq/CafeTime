@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useAuth } from "@/contexts/auth-context";
+import { emitEvent } from "@/lib/testchimp";
 import { Settings as SettingsIcon, Clock, MapPin, CalendarOff, PlusCircle, Trash2, Phone } from "lucide-react";
 import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -118,6 +119,7 @@ export default function SettingsPage() {
 
   const onCafeSettingsSubmit = (data: CafeSettingsFormValues) => {
     console.log("Cafe Settings Submitted:", data);
+    emitEvent('update_cafe_settings', { opening_time: data.openingTime, closing_time: data.closingTime });
     // TODO: Save these settings to backend/localStorage
     toast({
       title: "Cafe Settings Updated",
@@ -127,6 +129,7 @@ export default function SettingsPage() {
 
   const onProfileUpdateSubmit = (data: ProfileFormValues) => {
      console.log("Profile Update Submitted:", data);
+     emitEvent('update_profile', { has_phone: !!data.phoneNumber });
      updateUser({ name: data.name, phoneNumber: data.phoneNumber });
       toast({
         title: "Profile Updated",

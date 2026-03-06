@@ -6,6 +6,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { useRouter } from 'next/navigation';
 import { Routes } from '@/lib/constants';
 import { MOCK_DETAILED_EMPLOYEES } from '@/lib/mock-data'; // Import MOCK_DETAILED_EMPLOYEES
+import { initTestChimp, emitEvent, resetSession } from '@/lib/testchimp';
 
 interface AuthContextType {
   user: User | null;
@@ -46,6 +47,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           wageHistory: parsedUser.wageHistory || [],
           recurringPreferences: parsedUser.recurringPreferences || [],
         });
+        initTestChimp();
+        emitEvent('app_load', { user_role: parsedUser.role });
       }
     } catch (error) {
       console.error("Failed to parse user from localStorage", error);
@@ -89,6 +92,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setUser(mockUser);
       localStorage.setItem('cafeTimeUser', JSON.stringify(mockUser));
     }
+    initTestChimp();
+    emitEvent('login', { email, role });
     router.push(Routes.DASHBOARD);
   };
 
@@ -99,8 +104,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = () => {
+    emitEvent('logout', { email: user?.email });
     setUser(null);
     localStorage.removeItem('cafeTimeUser');
+    resetSession();
     router.push(Routes.LOGIN);
   };
 
