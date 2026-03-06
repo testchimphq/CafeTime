@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { ai } from 'ai-wright';
+import 'playwright-testchimp-reporter/runtime';
 
 test('invalidEmailFormat_givesErrorMessage', async ({ page, browser, context }) => {
   // @Scenario:invalid email address format should give error message

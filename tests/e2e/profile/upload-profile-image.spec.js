@@ -4,12 +4,13 @@
 
 import { test, expect } from '@playwright/test';
 import { ai } from 'ai-wright';
+import 'playwright-testchimp-reporter/runtime';
 
 
 test('uploadProfileImage_success', async ({ page }) => {
   // Navigate to the CafeTime homepage
   await page.goto(`https://cafetime-demo.web.app/`);
-  
+
   // Fill in the email field
   await page.getByTestId(`input-email`).click();
   await page.getByTestId(`input-email`).fill(`alice@example.com`);

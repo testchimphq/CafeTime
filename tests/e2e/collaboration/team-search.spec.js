@@ -5,7 +5,8 @@
  */
 
 import { test, expect } from '@playwright/test';
-import {ai} from 'ai-wright';
+import { ai } from 'ai-wright';
+import 'playwright-testchimp-reporter/runtime';
 
 test('search_success', async ({ page }) => {
   // @Scenario: search team members by partial name match
@@ -25,7 +26,7 @@ test('search_success', async ({ page }) => {
   await page.locator('[placeholder="Search by name or email..."]').fill('alice');
 
   /* @Screen: Team Search @State: non empty search results */
-  await ai.verify("Verify there is one search result",{page,test});
+  await ai.verify("Verify there is one search result", { page, test });
 });
 
 test('search_empty_results', async ({ page }) => {
@@ -44,5 +45,5 @@ test('search_empty_results', async ({ page }) => {
   await page.locator('[placeholder="Search by name or email..."]').fill('xxxxx');
 
   /* @Screen: Team Search @State: empty search results */
-  await ai.verify("Verify there are no search results but that the page isn't broken",{page,test});
+  await ai.verify("Verify there are no search results but that the page isn't broken", { page, test });
 });

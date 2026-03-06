@@ -5,6 +5,7 @@
 
 import { test, expect } from '@playwright/test';
 import { ai } from 'ai-wright';
+import 'playwright-testchimp-reporter/runtime';
 
 // cafetime project
 test('validCredentials_shouldSucceed', async ({ page, browser, context }) => {
