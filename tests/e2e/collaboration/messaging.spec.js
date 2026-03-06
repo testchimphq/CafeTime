@@ -16,8 +16,8 @@ test.describe('Messaging', () => {
   });
 
   test('sendMessage_success', async ({ page, browser, context }) => {
-    // @Scenario: Sending a non empty message should succeed
-
+    // @Scenario:#TS-100 Sending a non empty message should succeed
+    // New Content
     // Go to messages tab
     await page.getByText('Messages').waitFor();
     // @Screen: Dashboard @State: regular user, weekly view
@@ -29,7 +29,7 @@ test.describe('Messaging', () => {
   });
 
   test('emptyMessage_sendDisabled', async ({ page, browser, context }) => {
-    // @Scenario: UI should disallow sending empty messages
+    // @Scenario:#TS-101 UI should disallow sending empty messages
     await page.getByText('Messages').waitFor();
     // @Screen: Dashboard @State: regular user, weekly view
     await page.getByText('Messages').click();

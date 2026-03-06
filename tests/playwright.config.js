@@ -1,20 +1,26 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-import path from 'path';
 
-// Default env
-const testEnv = process.env.TESTCHIMP_ENV || 'QA';
+/**
+SETUP INSTRUCTIONS FOR CI:
+1) run `npm install playwright-testchimp-reporter` in your repo.
+2) Ensure the TESTCHIMP_API_KEY, TESTCHIMP_PROJECT_ID environment variables are set in the CI environment.
+3) Sync this 'tests' folder to a folder in your repo (Click "Sync with GitHub" - in SmartTests page in TestChimp).
+4) Setup your git workflow to run tests using standard playwright runner. Sample workflow file: https://github.com/testchimphq/CafeTime/blob/main/.github/workflows/playwright-tests.yml
 
-// Resolve env file
-const envPath = path.resolve(__dirname, `./.env-${testEnv}`);
+Note: the runner should be run from the tests folder to ensure proper path resolution (refer sample workflow file).
+Full Documentation: https://docs.testchimp.io/smart-tests/run-in-ci-playwright
+**/
 
-// Load it
-dotenv.config({ path: envPath });
+dotenv.config({
+  path: `.env-${process.env.TESTCHIMP_ENV || 'QA'}`
+});
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  // This assumes your tests folder name in the repo is "tests".
   testDir: '../tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -28,7 +34,7 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['playwright-testchimp-reporter', {
-      verbose: true
+      verbose: false
     }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

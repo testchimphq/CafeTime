@@ -23,7 +23,9 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          cd tests
+          npx playwright test
         env:
           TESTCHIMP_API_KEY: ${{ secrets.TESTCHIMP_API_KEY }}
           TESTCHIMP_PROJECT_ID: ${{ secrets.TESTCHIMP_PROJECT_ID }}
