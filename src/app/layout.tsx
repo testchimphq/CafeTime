@@ -6,6 +6,7 @@ import { APP_NAME } from '@/lib/constants';
 import { ThemeProvider } from "@/components/theme-provider";
 
 import { I18nProvider } from "@/components/i18n-provider";
+import { RUMPageTracker } from "@/components/rum-page-tracker";
 
 export const metadata: Metadata = {
   title: APP_NAME,
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-sans antialiased">
         <AuthProvider>
+          <RUMPageTracker />
           <I18nProvider>
             <ThemeProvider
               attribute="class"

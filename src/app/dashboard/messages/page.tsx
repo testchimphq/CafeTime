@@ -4,6 +4,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useAuth } from '@/contexts/auth-context';
 import { useMessaging } from '@/contexts/messaging-context';
+import { emitEvent } from '@/lib/testchimp';
 import type { Message, MockSimpleUser } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -101,6 +102,7 @@ export default function MessagesPage() {
     }
 
     sendMessage(newMessageContent, recipientId, recipientName);
+    emitEvent('send_message', { recipient_id: recipientId, recipient_name: recipientName });
     setNewMessageContent('');
     if(threadIdToSetActive && !activeThreadId) setActiveThreadId(threadIdToSetActive); 
     setManagerSelectedRecipientId(''); 
