@@ -8,6 +8,10 @@ export const initTestChimp = () => {
   testchimp.init({
     projectId: TESTCHIMP_PROJECT_ID,
     apiKey: TESTCHIMP_API_KEY,
+    config:{
+      captureEnabled:true,
+      testchimpEndpoint:"https://featureservice-staging.testchimp.io"
+    }
   });
 };
 
