@@ -5,6 +5,7 @@
 
 import { test, expect } from '@playwright/test';
 import { ai } from 'ai-wright';
+import 'playwright-testchimp-reporter/runtime';
 
 test('validCredentials_shouldSucceed', async ({ page, browser, context }) => {
   // @Scenario: valid credentials should allow users to login

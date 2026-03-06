@@ -7,8 +7,9 @@ Version: 1.0
 */
 
 import { test, expect } from '@playwright/test';
-import {SignIn} from "../../pages/SignIn.page.js";
+import { SignIn } from "../../pages/SignIn.page.js";
 import { ai } from 'ai-wright';
+import 'playwright-testchimp-reporter/runtime';
 
 test('logoutAndGoBack_shouldNotOpenDashboard', async ({ page, browser, context }) => {
   // @Scenario: after logging out, going back should not show logged-in experience
