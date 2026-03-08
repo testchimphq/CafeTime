@@ -7,7 +7,7 @@ import { ai } from 'ai-wright';
 import 'playwright-testchimp-reporter/runtime';
 
 test('update_settings_success', async ({ page }) => {
-  // @Scenario:user should be able to update name with valid value
+  // @Scenario:#TS-100 update settings successfully
   await page.goto(`https://cafetime-demo.web.app/`);
   // @Screen: Login Page @State: Unauthenticated
 
