@@ -8,7 +8,7 @@ export class SignIn {
 // Updated
   async login() {
     await this.page.goto(process.env.BASE_URL);
-    await this.page.getByTestId('input-email').fill(process.env.USERNAME);
+    await this.page.getByTestId('input-email').fill(process.env.USRNAME);
     await this.page.getByTestId('input-pass').fill(process.env.PASSWORD);
     await this.page.getByTestId('cta-login').click();
 
