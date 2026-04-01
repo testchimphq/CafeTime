@@ -8,6 +8,7 @@ priority: medium
 
 Users should be able to import from linear app
 
+CONTENT UPDATED
 
 
 Functional requirements
